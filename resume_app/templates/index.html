@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>{{ the_resume.name }}</title>
+</head>
+<body>
+    <div>
+        <p class="resume-data-colored">
+            <span class="resume-data-colored-highlight">{{ the_resume.name }}</span><br>
+            {{ the_resume.address["street"] }}<br>
+            {{ the_resume.address["city"] }}
+            {{ the_resume.address["state"] }},
+            {{ the_resume.address["zip"] }}<br>
+            {{ the_resume.email }}<br>
+            {{ the_resume.phone["label"] }}:
+            {{ the_resume.phone["number"] }}
+        </p>
+    </div>
+    <div>
+        <p class="resume-data-highlight">About Me</p>
+        {{ the_resume.about_me }}
+    </div>
+    <div>
+        <p class="resume-data-highlight">Skills</p>
+        {{ " | ".join(the_resume.skills) }}
+    </div>
+    <div>
+        <p class="resume-data-highlight">Education</p>
+        <ul>
+            {% for item in the_resume.education %}
+            <li>
+                <span class="resume-data-colored-highlight">
+                    {{ item["name"] }} ({{ item["year"] }})
+                </span>
+                - {{ item["school"] }} - {{ item["location"] }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <p class="resume-data-highlight">Experience</p>
+        <ul>
+            {% for item in the_resume.experience %}
+                <li>
+                    <span class="resume-data-highlight">
+                        {{ item["start-date"] }} to {{ item["end-date"] }} -
+                        {{ item["company"]["name"] }} - {{ item["company"]["location"] }}
+                    </span>
+                    {% for role in item["roles"] %}
+                        <br>
+                        <span class="resume-data-colored-highlight">{{ role["name"] }}</span>
+                        <ul>
+                            {% for accomplishment in role["accomplishments"] %}
+                                <li>{{ accomplishment }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endfor %}
+                </li>
+                <br>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

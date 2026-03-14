@@ -1,0 +1,100 @@
+{
+    "$id": "https://pat-st-jean.com/resume.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Patrick St. Jean's resume",
+    "$defs": {
+        "address": {
+            "type": "object",
+            "properties": {
+                "city": { "type": "string" },
+                "state": { "type": "string" },
+                "street": { "type": "string" },
+                "zip": { "type": "string" }
+            },
+            "required": [ "city", "state", "street", "zip" ]
+        },
+        "company": {
+            "type": "object",
+            "properties": {
+                "location": { "type": "string" },
+                "name": { "type": "string" }
+            },
+            "required": [ "location", "name" ]
+        },
+        "degree": {
+            "type": "object",
+            "properties": {
+                "location": { "type": "string" },
+                "name": { "type": "string" },
+                "school": { "type": "string" },
+                "year": { "type": "integer" }
+            },
+            "required": [ "location", "name", "school", "year" ]
+        },
+        "phone": {
+            "type": "object",
+            "properties": {
+                "number": { "type": "string" },
+                "label": { "type": "string" }
+            }
+        },
+        "position": {
+            "type": "object",
+            "properties": {
+                "company": { "$ref": "#/$defs/company" },
+                "end-date": { "type": "string" },
+                "roles": {
+                    "type": "array",
+                    "items": { "$ref": "#/$defs/role" },
+                    "minItems": 1
+                },
+                "start-date": { "type": "string" }
+            },
+            "required": ["company", "end-date", "roles", "start-date"]
+        },
+        "role": {
+            "type": "object",
+            "properties": {
+                "name": { "type": "string" },
+                "accomplishments": {
+                    "type": "array",
+                    "items": { "type": "string" },
+                    "minItems": 1
+                }
+            },
+            "required": ["accomplishments", "name"]
+        }
+    },
+    "type": "object",
+    "properties": {
+        "contact-info": {
+            "type": "object",
+            "properties": {
+                "name": { "type": "string" },
+                "address": { "$ref": "#/$defs/address" },
+                "phone-number": { "$ref": "#/$defs/phone" },
+                "email-address": { "type": "string", "format": "email" }
+            },
+            "required": [ "name", "address", "phone-number", "email-address" ]
+        },
+        "education": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/degree" },
+            "minItems": 1
+        },
+        "about-me": {
+            "type": "string"
+        },
+        "skills": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1
+        },
+        "experience": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/position" },
+            "minItems": 1
+        }
+    },
+    "required": [ "contact-info", "skills", "about-me", "education", "experience" ]
+}

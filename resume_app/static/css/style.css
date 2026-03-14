@@ -1,0 +1,14 @@
+body {
+    margin-left: 20px;
+    width: clamp(min(93.75vw, 50ch), 75vw, 80ch);
+}
+.resume-data-highlight {
+    font-weight: bold;
+}
+.resume-data-colored-highlight {
+    font-weight: bold;
+    color: #008080;
+}
+.resume-data-colored {
+    color: #008080;
+}
