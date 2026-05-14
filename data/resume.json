@@ -29,15 +29,22 @@
         }
     ],
     "skills": [
-        "Python",
-        "Docker",
-        "Helm",
-        "Kubernetes",
         "Linux",
+        "Python",
+        "Perl",
+        "Shell Scripting",
+        "Docker",
+        "Kubernetes",
+        "Portainer",
+        "Helm",
         "Proxmox",
         "Ansible",
+        "Tenable.io",
         "Nessus",
-        "REST APIs"
+        "REST APIs",
+        "Automation",
+        "CIS Benchmarks",
+        "GitHub Workflows"
     ],
     "experience": [
         {
@@ -49,7 +56,7 @@
             },
             "roles": [
                 {
-                    "name": "Associate Director",
+                    "name": "Associate Director - Cybersecurity Operations",
                     "accomplishments": [
                         "Continued support of customized Nessus audit files used for compliance scanning various Linux and Windows OS versions",
                         "Developed custom Nessus audit files to automate compliance scans of applications including SAP, SAP HANA, BigFix, and DB2 based on internal specifications.",

@@ -3,10 +3,12 @@ Class implementing a Resume object
 """
 
 import json
+import logging
 import os
 from typing import Optional
 
 from jsonschema import validate
+from jsonschema.exceptions import ValidationError, SchemaError
 
 
 class Resume:
@@ -24,7 +26,7 @@ class Resume:
         :raises ValueError: If src is invalid
         """
         self.__initialized = False
-        self.__data = ""
+        self.__data: dict = {}
 
         if src is None:
             return
@@ -37,16 +39,27 @@ class Resume:
 
         :param src: The path to the resume data
         :type src: str
+
+        :raises ValueError: The src param is invalid
+        :raises TypeError: The src param is invalid
+        :raises FileNotFoundError: The file doesn't exist
+        :raises ValidationError: The file did not pass schema validation
+
         :return: Nothing
         :rtype: None
         """
+        logger = logging.getLogger(f"{__name__}.{self.__class__.__name__}")
+
         if not src:
-            src = "data/resume.json"
+            logger.error("Invalid resume data path supplied")
+            raise ValueError("Invalid value for resume path")
 
         if not isinstance(src, str):
+            logger.error("Invalid resume data path supplied")
             raise TypeError("Invalid resume path supplied")
 
         if not os.path.exists(src):
+            logger.error("Invalid resume data path supplied")
             raise FileNotFoundError(f"Could not find {src}")
 
         with open("schemas/resume.schema.json", "r") as resume_schema:
@@ -55,7 +68,14 @@ class Resume:
         with open(src, "r") as resume_src:
             resume_data = json.load(resume_src)
 
-        validate(instance=resume_data, schema=resume_schema)
+        try:
+            validate(instance=resume_data, schema=resume_schema)
+        except SchemaError:
+            logger.error("There is something wrong in the schema")
+            raise
+        except ValidationError:
+            logger.error("The resume data failed schema validation")
+            raise
 
         self.__data = resume_data
 

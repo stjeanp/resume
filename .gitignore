@@ -1,3 +1,5 @@
 .env
 .idea
+*.pid
+*.swp
 __pycache__
