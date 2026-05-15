@@ -13,7 +13,8 @@ dependencies = [
     "flask (>=3.1.3,<4.0.0)",
     "gunicorn (>=25.1.0,<26.0.0)",
     "dotenv (>=0.9.9,<0.10.0)",
-    "cerberus (>=1.3.8,<2.0.0)"
+    "cerberus (>=1.3.8,<2.0.0)",
+    "weasyprint (>=68.1,<69.0)"
 ]
 
 [tool.poetry]
@@ -28,7 +29,7 @@ requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.mypy]
-files = ["gunicorn.conf.py", "app.py", "resume_app"]
+files = ["gunicorn.conf.py", "app.py", "resume_app", "tests"]
 
 [tool.pylint]
 ignore-patterns = ["^\\.git", "^\\.poetry"]
@@ -54,6 +55,22 @@ cmd = "pylint ."
 [tool.poe.tasks.mypy]
 help = "Check the code with mypy"
 cmd = "mypy"
+
+[tool.poe.tasks.coverage_erase]
+help = "Clear coverage data"
+cmd = "coverage erase"
+
+[tool.poe.tasks.coverage_report]
+help = "Print the coverage report"
+cmd = "coverage report -m --fail-under=100"
+
+[tool.poe.tasks.unit_tests]
+help = "Run the unit tests"
+cmd = "pytest"
+
+[tool.poe.tasks.pytest]
+help = "Clear coverage data then run all unit tests and report the results" 
+sequence = ["coverage_erase", "unit_tests", "coverage_report"]
 
 [dependency-groups]
 dev = [
