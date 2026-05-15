@@ -36,6 +36,7 @@ class ResumeConfigLoader:
             "schema": {
                 "type": "string",
                 "empty": False,
+                "regex": r"^[a-zA-Z0-9:\.\[\]\-]+$",
                 "nullable": False,
             },
             "minlength": 1,
@@ -62,6 +63,7 @@ class ResumeConfigLoader:
         "LOG_LEVEL": {
             "type": "string",
             "default": "INFO",
+            "allowed": ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
             "required": True,
             "nullable": False,
             "empty": False,

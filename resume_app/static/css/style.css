@@ -1,6 +1,17 @@
 body {
-    margin-left: 20px;
     width: clamp(min(93.75vw, 50ch), 75vw, 80ch);
+}
+.main {
+    margin-left: 20px;
+    margin-top: 60px;
+}
+.resume-menu {
+    font-weight: bold;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    background-color: #999;
+    width: 100%;
 }
 .resume-data-highlight {
     font-weight: bold;
