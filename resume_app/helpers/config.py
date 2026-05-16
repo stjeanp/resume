@@ -29,6 +29,13 @@ class ResumeConfigLoader:
     """
 
     THE_SCHEMA: Final[dict] = {
+        "APPLICATION_ROOT": {
+            "type": "string",
+            "default": "/",
+            "required": True,
+            "nullable": False,
+            "empty": False,
+        },
         "BIND_ADDRS": {
             "type": "list",
             "default": ["::1", "127.0.0.1"],
@@ -68,9 +75,25 @@ class ResumeConfigLoader:
             "nullable": False,
             "empty": False,
         },
+        "PREFERRED_URL_SCHEME": {
+            "type": "string",
+            "default": "http",
+            "allowed": ["http", "https"],
+            "required": True,
+            "nullable": False,
+            "empty": False,
+        },
         "SECRET_KEY": {
             "type": "string",
             "default": "InsecurePleaseChange",
+            "required": True,
+            "nullable": False,
+            "empty": False,
+        },
+        "SERVER_NAME": {
+            "type": "string",
+            "default": "localhost",
+            "regex": r"^[a-zA-Z0-9\.\-]+$",
             "required": True,
             "nullable": False,
             "empty": False,
