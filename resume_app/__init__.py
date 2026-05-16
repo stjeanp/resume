@@ -12,6 +12,7 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 from werkzeug.wrappers import Response
 
 from .helpers.resume import Resume
+from .routes.error import error_bp
 from .routes.favicon import favicon_bp
 from .routes.index import index_bp
 
@@ -38,13 +39,12 @@ def register_error_handlers(app: Flask) -> None:
         :return: The redirect response
         :rtype: Response
         """
+        msg_txt = "Unknown error"
         match e:
             case werkzeug.exceptions.NotFound():
                 msg_txt = "Not Found"
             case werkzeug.exceptions.MethodNotAllowed():
                 msg_txt = "Method Not Allowed"
-            case _:
-                msg_txt = "Unknown error"
         app.logger.error(
             "%s: URL: %s, Method: %s, Remote Addr: %s, Referrer: %s",
             msg_txt,
@@ -107,6 +107,7 @@ def create_app(configs: Optional[dict[str, Any]] = None) -> Flask:
 
     register_error_handlers(app)
 
+    app.register_blueprint(error_bp)
     app.register_blueprint(favicon_bp)
     app.register_blueprint(index_bp)
 
