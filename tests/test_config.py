@@ -34,6 +34,22 @@ def test_config_getattr(test_config_data) -> None:
     assert the_exception.type is AttributeError
 
 
+def test_bad_application_root(test_config_data, caplog) -> None:
+    """
+    Test a bad APPLICATION_ROOT value
+    """
+    orig, _expected = test_config_data
+
+    orig["APPLICATION_ROOT"] = {"foo": "bar"}
+    caplog.clear()
+    with pytest.raises(ValueError) as the_exception:
+        _config_obj = ResumeConfigLoader(orig)
+    assert the_exception.type is ValueError
+    assert "Config validation failed!" in caplog.text
+    assert "Config validation error: APPLICATION_ROOT" in caplog.text
+    assert "Config validation error: APPLICATION_ROOT - must be of string type" in caplog.text
+
+
 def test_bad_bind_addrs(test_config_data, caplog) -> None:
     """
     Test a bad BIND_ADDRS value
@@ -104,6 +120,24 @@ def test_bad_log_level(test_config_data, caplog) -> None:
     assert "Config validation error: LOG_LEVEL - unallowed value foo" in caplog.text
 
 
+def test_bad_preferred_url_scheme(test_config_data, caplog) -> None:
+    """
+    Test a bad PREFERRED_URL_SCHEME value
+    """
+    orig, _expected = test_config_data
+
+    orig["PREFERRED_URL_SCHEME"] = "foo"
+
+    caplog.clear()
+
+    with pytest.raises(ValueError) as the_exception:
+        _config_obj = ResumeConfigLoader(orig)
+
+    assert the_exception.type is ValueError
+    assert "Config validation failed!" in caplog.text
+    assert "Config validation error: PREFERRED_URL_SCHEME - unallowed value foo" in caplog.text
+
+
 def test_bad_secret_key(test_config_data, caplog) -> None:
     """
     Test a bad SECRET_KEY value
@@ -120,3 +154,33 @@ def test_bad_secret_key(test_config_data, caplog) -> None:
     assert the_exception.type is ValueError
     assert "Config validation failed!" in caplog.text
     assert "Config validation error: SECRET_KEY - must be of string type" in caplog.text
+
+
+def test_bad_server_name(test_config_data, caplog) -> None:
+    """
+    Test a bad SERVER_NAME value
+    """
+    orig, _expected = test_config_data
+
+    orig["SERVER_NAME"] = "1xa#"
+
+    caplog.clear()
+
+    with pytest.raises(ValueError) as the_exception:
+        _config_obj = ResumeConfigLoader(orig)
+
+    assert the_exception.type is ValueError
+    assert "Config validation failed!" in caplog.text
+    assert "Config validation error: SERVER_NAME" in caplog.text
+    assert "value does not match regex" in caplog.text
+
+    orig["SERVER_NAME"] = {"foo": "bar"}
+
+    caplog.clear()
+
+    with pytest.raises(ValueError) as the_exception:
+        _config_obj = ResumeConfigLoader(orig)
+
+    assert the_exception.type is ValueError
+    assert "Config validation failed!" in caplog.text
+    assert "Config validation error: SERVER_NAME - must be of string type" in caplog.text

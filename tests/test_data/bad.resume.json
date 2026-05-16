@@ -1,0 +1,22 @@
+{
+    "contact-info": {
+        "address": {
+            "street": "",
+            "city": "",
+            "state": "",
+            "zip": ""
+        },
+        "email-address": "",
+        "name": "",
+        "phone-number": {
+            "label": "",
+            "number": ""
+        }
+    },
+    "education": [
+    ],
+    "skills": [
+    ],
+    "experience": [
+    ]
+}
