@@ -3,12 +3,12 @@ Tests of the Flask error handlers
 """
 
 from flask import url_for
-import pytest
-
-from resume_app.routes.index import index_bp
 
 
 def test_not_found_exception(client, caplog):
+    """
+    Test handling a NotFound exception
+    """
     caplog.clear()
     response = client.get("/not_a_page.html")
     assert response.status_code == 302
@@ -18,6 +18,9 @@ def test_not_found_exception(client, caplog):
 
 
 def test_method_not_allowed_exception(client, caplog):
+    """
+    Test handling a MethodNotAllowed exception
+    """
     caplog.clear()
     response = client.post("/")
     assert response.status_code == 302
@@ -26,6 +29,9 @@ def test_method_not_allowed_exception(client, caplog):
 
 
 def test_direct_error_page(client, caplog):
+    """
+    Test trying to access the error page directly
+    """
     caplog.clear()
     response = client.get("/error.html")
     assert response.status_code == 302
@@ -40,6 +46,9 @@ def mock_a_fatal_exception():
 
 
 def test_fatal_exception(app, caplog):
+    """
+    Test handling a fatal application exception
+    """
     app.config.update({"PROPAGATE_EXCEPTIONS": False})
     app.view_functions["index_bp.index"] = mock_a_fatal_exception
     caplog.clear()

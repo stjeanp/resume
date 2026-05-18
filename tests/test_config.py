@@ -47,7 +47,10 @@ def test_bad_application_root(test_config_data, caplog) -> None:
     assert the_exception.type is ValueError
     assert "Config validation failed!" in caplog.text
     assert "Config validation error: APPLICATION_ROOT" in caplog.text
-    assert "Config validation error: APPLICATION_ROOT - must be of string type" in caplog.text
+    assert (
+        "Config validation error: APPLICATION_ROOT - must be of string type"
+        in caplog.text
+    )
 
 
 def test_bad_bind_addrs(test_config_data, caplog) -> None:
@@ -135,7 +138,10 @@ def test_bad_preferred_url_scheme(test_config_data, caplog) -> None:
 
     assert the_exception.type is ValueError
     assert "Config validation failed!" in caplog.text
-    assert "Config validation error: PREFERRED_URL_SCHEME - unallowed value foo" in caplog.text
+    assert (
+        "Config validation error: PREFERRED_URL_SCHEME - unallowed value foo"
+        in caplog.text
+    )
 
 
 def test_bad_secret_key(test_config_data, caplog) -> None:
@@ -183,4 +189,6 @@ def test_bad_server_name(test_config_data, caplog) -> None:
 
     assert the_exception.type is ValueError
     assert "Config validation failed!" in caplog.text
-    assert "Config validation error: SERVER_NAME - must be of string type" in caplog.text
+    assert (
+        "Config validation error: SERVER_NAME - must be of string type" in caplog.text
+    )

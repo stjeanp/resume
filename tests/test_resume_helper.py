@@ -2,8 +2,6 @@
 Tests of the resume helper class
 """
 
-import logging
-
 from json.decoder import JSONDecodeError
 from jsonschema.exceptions import SchemaError, ValidationError
 import pytest
@@ -12,6 +10,9 @@ from resume_app.helpers.resume import Resume
 
 
 def test_resume_init(test_config_data, caplog):
+    """
+    Tests around the instance creation and initialization process
+    """
     my_configs, _expected = test_config_data
 
     the_resume = Resume()

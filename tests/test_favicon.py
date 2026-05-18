@@ -4,8 +4,6 @@ Tests for the favicon route
 
 import hashlib
 
-import pytest
-
 
 def test_favicon(client):
     """
