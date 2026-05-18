@@ -9,7 +9,8 @@ from typing import Optional
 
 from json.decoder import JSONDecodeError
 from jsonschema import validate
-from jsonschema.exceptions import ValidationError, SchemaError, _WrappedReferencingError
+from jsonschema.exceptions import ValidationError, SchemaError
+from referencing.exceptions import Unresolvable
 
 
 class Resume:
@@ -90,9 +91,9 @@ class Resume:
         except JSONDecodeError:
             logger.error("The resume data failed JSON decode")
             raise
-        except (SchemaError, _WrappedReferencingError) as the_exception:
+        except (SchemaError, Unresolvable) as the_exception:
             logger.error("There is something wrong in the schema")
-            raise SchemaError(the_exception)
+            raise SchemaError(str(the_exception))
         except ValidationError:
             logger.error("The resume data failed schema validation")
             raise
