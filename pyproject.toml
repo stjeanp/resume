@@ -11,7 +11,7 @@ dependencies = [
     "jsonschema (>=4.26.0,<5.0.0)",
     "python-dotenv (>=1.2.2,<2.0.0)",
     "flask (>=3.1.3,<4.0.0)",
-    "gunicorn (>=25.1.0,<26.0.0)",
+    "gunicorn (>=26.0.0,<27.0.0)",
     "dotenv (>=0.9.9,<0.10.0)",
     "cerberus (>=1.3.8,<2.0.0)",
     "weasyprint (>=68.1,<69.0)"
@@ -42,7 +42,7 @@ diff = true
 
 [tool.pytest]
 pythonpath = ["."]
-addopts = ["--cov", "--cov-append", "--cov-report="]
+addopts = ["--cov=tests", "--cov=resume_app", "--cov-append", "--cov-report="]
 
 [tool.poe.tasks.black]
 help = "Check the code with black"
@@ -72,12 +72,20 @@ cmd = "pytest"
 help = "Clear coverage data then run all unit tests and report the results" 
 sequence = ["coverage_erase", "unit_tests", "coverage_report"]
 
+[tool.poe.tasks.pip_audit]
+help = "Scan the dependencies for vulnerabilities"
+cmd = "pip-audit"
+
+[tool.poe.tasks.code_quality]
+help = "Run all code quality checks"
+sequence = ["pylint", "mypy", "black", "pytest", "pip_audit"]
+
 [dependency-groups]
 dev = [
-    "black (>=25.12.0,<27.0.0)",
+    "black (>=26.0.0,<27.0.0)",
     "pytest (>=9.0.2,<10.0.0)",
     "pytest-cov (>=7.0.0,<8.0.0)",
-    "mypy (>=1.19.1,<2.0.0)",
+    "mypy (>=2.0.0,<3.0.0)",
     "pip-audit (>=2.10.0,<3.0.0)",
     "pylint (>=4.0.5,<5.0.0)",
     "types-jsonschema (>=4.26.0.20260508,<5.0.0.0)"
