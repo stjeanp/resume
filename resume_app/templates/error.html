@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oh no!</title>
+</head>
+<body>
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh;">
+        <div><h1>Oh no!</h1></div>
+        <div><p>Something bad happened</p></div>
+        <div><img src="{{ url_for('static', filename='images/sad-face.svg') }}" width="100px"></div>
+        <div><a href="{{ url_for('index_bp.index') }}">Take me home!</a></div>
+    </div>
+</body>
+</html>

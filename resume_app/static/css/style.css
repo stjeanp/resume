@@ -1,0 +1,25 @@
+body {
+    width: clamp(min(93.75vw, 50ch), 75vw, 80ch);
+}
+.main {
+    margin-left: 20px;
+    margin-top: 60px;
+}
+.resume-menu {
+    font-weight: bold;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    background-color: #999;
+    width: 100%;
+}
+.resume-data-highlight {
+    font-weight: bold;
+}
+.resume-data-colored-highlight {
+    font-weight: bold;
+    color: #008080;
+}
+.resume-data-colored {
+    color: #008080;
+}

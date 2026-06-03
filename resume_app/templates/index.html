@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+body {
+    width: 60vw
+}
+.main {
+    {% if show_menu %}
+    margin-left: 25%;
+    {% else %}
+    margin-left: 10px;
+    {% endif %}
+    margin-top: 60px;
+}
+.resume-menu {
+    font-weight: bold;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    background-color: #999;
+    width: 100%;
+}
+.resume-data-highlight {
+    font-weight: bold;
+}
+.resume-data-colored-highlight {
+    font-weight: bold;
+    color: #008080;
+}
+.resume-data-colored {
+    color: #008080;
+}
+    </style>
+    <title>{{ the_resume.name }}</title>
+</head>
+<body>
+    {% if show_menu %}
+    <div class="resume-menu">
+        <p>
+            <a href="{{ url_for('index_bp.download_pdf') }}" download>Download as PDF</a>
+        </p>
+    </div>
+    {% endif %}
+    <div class="main">
+    <div>
+        <p class="resume-data-colored">
+            <span class="resume-data-colored-highlight">{{ the_resume.name }}</span><br>
+            {{ the_resume.address["street"] }}<br>
+            {{ the_resume.address["city"] }}
+            {{ the_resume.address["state"] }},
+            {{ the_resume.address["zip"] }}<br>
+            {{ the_resume.email }}<br>
+            {{ the_resume.phone["label"] }}:
+            {{ the_resume.phone["number"] }}
+        </p>
+    </div>
+    <div>
+        <p class="resume-data-highlight">About Me</p>
+        {{ the_resume.about_me }}
+    </div>
+    <div>
+        <p class="resume-data-highlight">Skills</p>
+        {{ " | ".join(the_resume.skills) }}
+    </div>
+    <div>
+        <p class="resume-data-highlight">Education</p>
+        <ul>
+            {% for item in the_resume.education %}
+            <li>
+                <span class="resume-data-colored-highlight">
+                    {{ item["name"] }} ({{ item["year"] }})
+                </span>
+                - {{ item["school"] }} - {{ item["location"] }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <p class="resume-data-highlight">Experience</p>
+        <ul>
+            {% for item in the_resume.experience %}
+                <li>
+                    <span class="resume-data-highlight">
+                        {{ item["start-date"] }} to {{ item["end-date"] }} -
+                        {{ item["company"]["name"] }} - {{ item["company"]["location"] }}
+                    </span>
+                    {% for role in item["roles"] %}
+                        <br>
+                        <span class="resume-data-colored-highlight">{{ role["name"] }}</span>
+                        <ul>
+                            {% for accomplishment in role["accomplishments"] %}
+                                <li>{{ accomplishment }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endfor %}
+                </li>
+                <br>
+            {% endfor %}
+        </ul>
+    </div>
+    </div>
+</body>
+</html>

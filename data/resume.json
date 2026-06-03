@@ -1,0 +1,209 @@
+{
+    "contact-info": {
+        "address": {
+            "street": "1376 Mustang Dr",
+            "city": "Lewisville",
+            "state": "TX",
+            "zip": "75067"
+        },
+        "email-address": "stjeanp@pat-st-jean.com",
+        "name": "Patrick St. Jean",
+        "phone-number": {
+            "label": "mobile",
+            "number": "+1-972-800-2425"
+        }
+    },
+    "about-me": "Multitalented IT professional with concentrations in security auditing and compliance, process automation, software development, and Linux/UNIX systems administration.",
+    "education": [
+        {
+            "year": 2006,
+            "name": "Bachelor of Science",
+            "school": "University of Phoenix",
+            "location": "Phoenix, AZ"
+        },
+        {
+            "year": 2012,
+            "name": "Master of Science",
+            "school": "University of Illinois at Springfield",
+            "location": "Springfield, IL"
+        }
+    ],
+    "skills": [
+        "Linux",
+        "Python",
+        "Perl",
+        "Shell Scripting",
+        "Docker",
+        "Kubernetes",
+        "Portainer",
+        "Helm",
+        "Proxmox",
+        "Ansible",
+        "Tenable.io",
+        "Nessus",
+        "REST APIs",
+        "Automation",
+        "CIS Benchmarks",
+        "GitHub Workflows"
+    ],
+    "experience": [
+        {
+            "start-date": "11/2021",
+            "end-date": "present",
+            "company": {
+                "name": "Kyndryl",
+                "location": "Dallas, TX"
+            },
+            "roles": [
+                {
+                    "name": "Associate Director - Cybersecurity Operations",
+                    "accomplishments": [
+                        "Continued support of customized Nessus audit files used for compliance scanning various Linux and Windows OS versions",
+                        "Developed custom Nessus audit files to automate compliance scans of applications including SAP, SAP HANA, BigFix, and DB2 based on internal specifications.",
+                        "Audited and rewrote Java based S/MIME certificate portal in Python to address security issues as well as to migrate to SSL certificate vendor's current API.",
+                        "Successfully led on-site ransomware recovery team, including OS, network, and CSIRT personnel to full service restoration.",
+                        "Member of the team that was engaged to roll out Orca CNAPP at a financial services customer.",
+                        "Implemented module in Python for internal data warehouse to load TTPs from Crowdstrike and MITRE Att&Ck to improve CSIRT team's threat attribution.",
+                        "Refactored internal data warehouse's email sending module to use latest Python modules and better support sending attachments.",
+                        "Wrote new security incident reporting app, replacing a PowerApp form with a containerized Python application running in a Kubernetes cluster, including a full CI/CD pipeline using Github Actions."
+                    ]
+                }
+            ]
+        },
+        {
+            "start-date": "9/2017",
+            "end-date": "11/2021",
+            "company": {
+                "name": "IBM",
+                "location": "Dallas, TX"
+            },
+            "roles": [
+                {
+                    "name": "Technical Architect",
+                    "accomplishments": [
+                        "Developed and maintained a suite of customized Nessus audit files used for compliance scanning various Linux and Windows OS versions.",
+                        "Assisted system owners with interpreting and remediating compliance findings.",
+                        "Served as subject matter expert for Linux/UNIX operating systems in front of internal and 3rd party auditors.",
+                        "Helped with security incident response and recovery efforts for internal and customer assets.",
+                        "Developed automations to migrate all endpoints from CarbonBlack to Crowdstrike using both Ansible and BigFix",
+                        "Took over maintenance of rewrote remote access tooling written in C to close numerous vulnerabilities."
+                    ]
+                }
+            ]
+        },
+        {
+            "start-date": "8/2006",
+            "end-date": "9/2017",
+            "company": {
+                "name": "Verizon Business/Terremark/Verizon",
+                "location": "Irving, TX"
+            },
+            "roles": [
+                {
+                    "name": "Systems Administrator",
+                    "accomplishments": [
+                        "Led effort to identify and update thousands of weak or expired SSL certificates in both customer and internal environments.",
+                        "Worked on the healthcare.gov stabilization team, improving response times and application performance.",
+                        "Held Public Trust clearance for supporting va.gov client.",
+                        "Used Puppet to automate resolving configuration, patching, and security findings in the va.gov account.",
+                        "Worked on the migration of internal and customer facing Puppet infrastructure to SaltStack, including obtaining SaltStack Administrator certification.",
+                        "Assisted the team rolling out Tanium in the environment.",
+                        "Built the automations to deploy Qualys security scanning agents on internal and customer servers."
+                    ]
+                },
+                {
+                    "name": "Client Engineer - AA.com",
+                    "accomplishments": [
+                        "Responsible for top tier UNIX support for client servers and applications including Websphere ND and XD, and Oracle installations.",
+                        "Manage and configure the VMware vBlock environment.",
+                        "Design, write, and test code deployment and process automations to improve service delivery and site stability.",
+                        "Provide technical expertise to customers concerning performance and security related issues affecting their sites.",
+                        "Create and maintain HPOV monitoring templates for the environment."
+                    ]
+                }
+            ]
+        },
+        {
+            "start-date": "10/2000",
+            "end-date": "8/2006",
+            "company": {
+                "name": "Nokia Mobile Phones",
+                "location": "Irving, TX"
+            },
+            "roles": [
+                {
+                    "name": "Specialist – Platform Support",
+                    "accomplishments": [
+                        "Implemented BMC Patrol/Perceive monitoring of all UNIX and Windows based servers on the datacenter floor.",
+                        "Assisted in developing datacenter standards such as cabling, server labeling, racks, OS installation, and security policies.",
+                        "Worked with Finnish counterparts to design, test, and implement monitoring of web based services using Topaz software and the integration into the Tivoli environment.",
+                        "Served as backup administrator for the Tivoli monitoring environment in use. Duties included installation of Endpoints and Managed Nodes and configuring monitors and events.",
+                        "Designed hardware environment for production and test Tivoli environments using E420R, V480, and V100 hardware and various locally attached storage.",
+                        "Implemented Dallas node of LDAP authentication system using Java Directory Server and a load balanced set of Sun V210 servers.",
+                        "Assist data center teams with diagnosing and fixing issues identified by monitoring software."
+                    ]
+                },
+                {
+                    "name": "Platform Support Specialist, Information Management – eBusiness",
+                    "accomplishments": [
+                        "Worked on development and implementation of load balanced, high availability e-commerce system marketing cellular phone accessories. Utilized Sun Servers: V480, E6500, E4500, E250, E420r, E220r, Netra, Sun Disk Arrays: A5200, A3500, A1000, D1000, with Veritas Volume Manager, File System, and Cluster Server software.",
+                        "Monitored and maintained Sun servers running Solaris 2.6 and 2.7, JAVA, StoryServer, Oracle, Netscape/IPlanet web servers, Apache/Jakarta-Tomcat, Kana CMS, Accrue Insight, BEA Weblogic, EMG SMS gateway, and custom developed payment and fulfillment systems.",
+                        "Implemented VPN connections to cellular carriers in the US and South America using SSH and PPP to deliver custom ring tones and other data.",
+                        "Installed and configured Veritas Cluster Server installations providing high availability clusters for Oracle and NFS instances.",
+                        "Wrote and maintained various scripts for updating data from remote sources such as rate plans and coverage maps and monitoring the performance of the servers and services.",
+                        "Kept OS patches current on all systems using off the shelf software and custom written scripts.",
+                        "Provided systems level support and technical advice to in-house and contract software developers."
+                    ]
+                }
+            ]
+        },
+        {
+            "start-date": "08/1999",
+            "end-date": "09/2000",
+            "company": {
+                "name": "FlashNet/Prodigy Communications",
+                "location": "Fort Worth, TX"
+            },
+            "roles": [
+                {
+                    "name": "Manager – Operations Engineering",
+                    "accomplishments": [
+                        "Systems administrator responsible for implementation and support of enterprise solutions, including disaster recovery, Internet services, backup, security, Y2K compliance, and data center relocation.",
+                        "Responsible for all system and network security needs in data center.",
+                        "Security audits and intrusion detection tools.",
+                        "Facilitated secure, restricted access to production servers for employees.",
+                        "Configured and maintained production firewalls.",
+                        "Modernized acceptable use policies and their enforcement.",
+                        "Hired and supervised staff of three abuse/security specialists to handle spam and other customer issues.",
+                        "Major participant in relocation effort of more than 40 Sun servers to new data center with minimal downtime.",
+                        "Configured, tuned, and maintained servers running Solaris 2.6 and 2.7, Sendmail, Qpop, Apache, Typhoon, Cyclone, Cistron RADIUS, NFS, DNS, Veritas File System, Volume Manager, NetBackup, ProFTPD, and Oracle. Hardware included Sun E4500, E4000, E3500, E450, E250, E2 systems, Sun A3500, A1000, and Network Appliance F760 disk arrays in fault tolerant configurations, Seek disk accelerators, and gigabit and fast Ethernet networks with Foundry, Cisco, and Cabletron switches."
+                    ]
+                }
+            ]
+        },
+        {
+            "start-date": "05/1996",
+            "end-date": "08/1999",
+            "company": {
+                "name": "Larson Software Technology",
+                "location": "Houston, TX"
+            },
+            "roles": [
+                {
+                    "name": "Staff Programmer/System Administrator",
+                    "accomplishments": [
+                        "Developed and maintained UNIX Network Plotting System server and client applications written using C, Perl, and X11/Motif.",
+                        "Developed and maintained numerous printer and plotter drivers.",
+                        "User interface developer for Windows applications using VC++ and VB.",
+                        "In charge of developing and implementing Windows software deployment strategies using InstallShield.",
+                        "Responsible for systems level programming, application porting and general cross platform compatibility issues across product lines.",
+                        "Systems and Network Administrator for company LAN. In charge of all UNIX machines. Responsible for backups/disaster recovery, NFS and SAMBA file sharing, setup and configuration of new workstations and PCs, and general upkeep.",
+                        "Administer corporate Internet connection, including ftp servers, firewalls, Sendmail, Apache web server, and ISDN leased line.",
+                        "Configured, tuned, and maintained cross platform development environment consisting of Suns, RS/6000s, and SGIs.",
+                        "Wrote web based defect tracking system used internally."
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,3 @@
+# To mitigate some of the risk of supply chain attacks, don't install
+# package versions less than this many days old
+solver.min-release-age = 7
