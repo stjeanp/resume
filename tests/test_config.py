@@ -59,7 +59,7 @@ def test_bad_bind_addrs(test_config_data, caplog) -> None:
     """
     orig, _expected = test_config_data
 
-    orig["BIND_ADDRS"] = {"foo": "bar"}
+    orig["BIND_ADDRS"] = ["::", "0.0.0.0"]
     caplog.clear()
     with pytest.raises(ValueError) as the_exception:
         _config_obj = ResumeConfigLoader(orig)
