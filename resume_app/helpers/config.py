@@ -38,7 +38,7 @@ class ResumeConfigLoader:
         },
         "BIND_ADDRS": {
             "type": "list",
-            "default": ["::1", "127.0.0.1"],
+            "default": "[::]",
             "required": True,
             "schema": {
                 "type": "string",
@@ -53,7 +53,7 @@ class ResumeConfigLoader:
         },
         "BIND_PORT": {
             "type": "integer",
-            "default": 8000,
+            "default": 2112,
             "required": True,
             "nullable": False,
             "min": 1025,
