@@ -22,4 +22,3 @@ capture_output = False  # pylint: disable=invalid-name
 bind = []
 for the_addr in app_configs["BIND_ADDRS"]:
     bind.append(f"{the_addr}:{app_configs['BIND_PORT']}")
-print(bind)
