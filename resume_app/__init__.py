@@ -40,12 +40,15 @@ def register_error_handlers(app: Flask) -> None:
         :rtype: Response
         """
         msg_txt = "Unknown error"
+        log_level = logging.ERROR
         match e:
             case werkzeug.exceptions.NotFound():
                 msg_txt = "Not Found"
+                log_level = logging.INFO
             case werkzeug.exceptions.MethodNotAllowed():
                 msg_txt = "Method Not Allowed"
-        app.logger.error(
+        app.logger.log(
+            log_level,
             "%s: URL: %s, Method: %s, Remote Addr: %s, Referrer: %s",
             msg_txt,
             request.url,

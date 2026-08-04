@@ -17,9 +17,7 @@ def make_list(the_val: str) -> list:
     :return: The split up list
     :rtype: list
     """
-    the_list = []
-    for item in the_val.split(","):
-        the_list.append(item.strip())
+    the_list = [v.strip() for v in the_val.split(",") if v]
     return the_list
 
 

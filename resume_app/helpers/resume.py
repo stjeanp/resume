@@ -54,10 +54,11 @@ class Resume:
         :param src: The path to the resume data
         :type src: str
 
-        :raises ValueError: The src param is invalid
-        :raises TypeError: The src param is invalid
         :raises FileNotFoundError: The file doesn't exist
+        :raises SchemaError: There is a problem with the schema
+        :raises TypeError: The src param is invalid
         :raises ValidationError: The file did not pass schema validation
+        :raises ValueError: The src param is invalid
 
         :return: Nothing
         :rtype: None
