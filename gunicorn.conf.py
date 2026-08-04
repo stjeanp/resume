@@ -9,7 +9,6 @@ from resume_app.helpers.config import ResumeConfigLoader
 config_file = os.getenv("CONFIG_FILE", ".env")
 app_configs = ResumeConfigLoader(dotenv_values(config_file)).configs
 
-print(app_configs)
 if app_configs is None:
     raise ValueError("Failed to load configs!")
 
