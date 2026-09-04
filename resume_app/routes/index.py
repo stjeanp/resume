@@ -17,6 +17,12 @@ index_bp = Blueprint("index_bp", __name__)
 
 @index_bp.route("/", methods=["GET"])
 def index() -> str:
+    """
+    Generate our index page
+
+    :return: The rendered page
+    :rtype: str
+    """
     return render_template(
         "index.html",
         the_resume=current_app.extensions["resume"],
@@ -26,6 +32,12 @@ def index() -> str:
 
 @index_bp.route("/PatStJean_Resume.pdf", methods=["GET"])
 def download_pdf() -> Response:
+    """
+    Dynamically render the PDF version of the resume and return it to the user
+
+    :return: The Response object containing the rendered PDF
+    :rtype: Response
+    """
     the_html = render_template(
         "index.html",
         the_resume=current_app.extensions["resume"],

@@ -99,6 +99,17 @@ class ResumeConfigLoader:
     }
 
     def __init__(self, raw_configs: dict) -> None:
+        """
+        Class initializer for ResumeConfigLoader class
+
+        :param raw_configs: Raw config data dictionary
+        :type raw_configs: dict
+
+        :raises: ValueError when the raw config data has errors
+
+        :return: Nothing
+        :rtype: None
+        """
         self.__configs = None
 
         logger = logging.getLogger(f"{__name__}.{self.__class__.__name__}")
